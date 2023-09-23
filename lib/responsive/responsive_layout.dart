@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import '../custom_widget.dart';
+import '../rush.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   final Widget? largeScreen;
