@@ -1,4 +1,4 @@
-part of custom_widget;
+part of rush;
 
 
 class CheckboxWidget extends StatefulWidget {

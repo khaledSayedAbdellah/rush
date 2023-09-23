@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-
 import '../custom_widget.dart';
 
 class ResponsiveLayout extends StatelessWidget {
