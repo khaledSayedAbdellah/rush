@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mvc_pattern/mvc_pattern.dart';
 import '../rush.dart';
 
 class ResponsiveLayout extends StatelessWidget {
@@ -59,29 +58,6 @@ abstract class ResponsiveStatelessMixin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ResponsiveLayout(
-        largeScreen: buildLargeScreen(context),
-        mediumScreen: buildMediumScreen(context),
-        smallScreen: buildSmallScreen(context),
-      ),
-    );
-  }
-
-  Widget buildLargeScreen(BuildContext context);
-  Widget buildMediumScreen(BuildContext context);
-  Widget buildSmallScreen(BuildContext context);
-}
-
-abstract class ResponsiveStateFullMixin extends StatefulWidget {
-  const ResponsiveStateFullMixin({Key? key}) : super(key: key);
-}
-
-abstract class ResponsiveStateFullMixinState<T extends StatefulWidget> extends StateMVC<T> {
-  ResponsiveStateFullMixinState(super.controller);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:  ResponsiveLayout(
         largeScreen: buildLargeScreen(context),
         mediumScreen: buildMediumScreen(context),
         smallScreen: buildSmallScreen(context),
