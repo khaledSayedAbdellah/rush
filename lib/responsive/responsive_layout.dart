@@ -24,26 +24,26 @@ class ResponsiveLayout extends StatelessWidget {
         if(smallScreen == null && mediumScreen == null && largeScreen == null) {
           return const Center(child: Text("no screens available"));
         }
-        if(!enableMediumScreens && !enableLargeScreens && !enableSmallScreens) {
+        if(!RushSetup.enableMediumScreens && !RushSetup.enableLargeScreens && !RushSetup.enableSmallScreens) {
           return const Center(child: Text("no screens available"));
         }
-        if (constraints.maxWidth <= 768 && enableSmallScreens) {
+        if (constraints.maxWidth <= RushSetup.startMediumSize && RushSetup.enableSmallScreens) {
           return smallScreen ?? mediumScreen?? largeScreen ??const SizedBox();
-        } else if (constraints.maxWidth <= 1200 && constraints.maxWidth > 768 && enableMediumScreens) {
+        } else if (constraints.maxWidth <= RushSetup.startLargeSize && constraints.maxWidth > RushSetup.startMediumSize && RushSetup.enableMediumScreens) {
           return mediumScreen ?? largeScreen ?? smallScreen??const SizedBox();
         } else {
-          if(constraints.maxWidth <= 768){
-            if(enableMediumScreens && mediumScreen!=null) return mediumScreen!;
-            if(enableLargeScreens && largeScreen!=null) return largeScreen!;
+          if(constraints.maxWidth <= RushSetup.startMediumSize){
+            if(RushSetup.enableMediumScreens && mediumScreen!=null) return mediumScreen!;
+            if(RushSetup.enableLargeScreens && largeScreen!=null) return largeScreen!;
           }
-          else if(constraints.maxWidth <= 1200 && constraints.maxWidth > 768){
-            if(enableLargeScreens && largeScreen!=null) return largeScreen!;
-            if(enableSmallScreens && smallScreen!=null) return smallScreen!;
+          else if(constraints.maxWidth <= RushSetup.startLargeSize && constraints.maxWidth > RushSetup.startMediumSize){
+            if(RushSetup.enableLargeScreens && largeScreen!=null) return largeScreen!;
+            if(RushSetup.enableSmallScreens && smallScreen!=null) return smallScreen!;
           }
           else{
-            if(enableLargeScreens && largeScreen!=null) return largeScreen!;
-            if(enableMediumScreens && mediumScreen!=null) return mediumScreen!;
-            if(enableSmallScreens && smallScreen!=null) return smallScreen!;
+            if(RushSetup.enableLargeScreens && largeScreen!=null) return largeScreen!;
+            if(RushSetup.enableMediumScreens && mediumScreen!=null) return mediumScreen!;
+            if(RushSetup.enableSmallScreens && smallScreen!=null) return smallScreen!;
           }
           return const Center(child: Text("no screens available"));
         }

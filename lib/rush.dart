@@ -1,21 +1,22 @@
 library rush;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart' show Checkbox;
 
-part 'widgets/checkboxWidget/checkbox.dart';
+class RushSetup{
+        static bool? _enableLarge, _enableMedium, _enableSmall;
+        static late final double startMediumSize, startLargeSize;
+
+        static bool get enableLargeScreens => _enableLarge??true;
+        static bool get enableMediumScreens => _enableMedium??true;
+        static bool get enableSmallScreens => _enableSmall??true;
 
 
-bool? _enableLarge;
-bool? _enableMedium;
-bool? _enableSmall;
+        static void init({bool enableLargeScreens = true,bool enableMediumScreens = true,bool enableSmallScreens = true,
+                double startMediumSize = 768, double startLargeSize = 1200,}){
+                _enableLarge = enableLargeScreens;
+                _enableMedium = enableMediumScreens;
+                _enableSmall = enableSmallScreens;
 
-bool get enableLargeScreens => _enableLarge??true;
-bool get enableMediumScreens => _enableMedium??true;
-bool get enableSmallScreens => _enableSmall??true;
-
-void responseSetUp({bool enableLargeScreens = true,bool enableMediumScreens = true,bool enableSmallScreens = true,}){
-        _enableLarge = enableLargeScreens;
-        _enableMedium = enableMediumScreens;
-        _enableSmall = enableSmallScreens;
+                RushSetup.startMediumSize = startMediumSize;
+                RushSetup.startLargeSize = startLargeSize;
+        }
 }
