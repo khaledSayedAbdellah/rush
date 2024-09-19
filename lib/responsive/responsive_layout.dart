@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../rush.dart';
 
-class ResponsiveLayout extends StatelessWidget {
+class RushWidget extends StatelessWidget {
   final Widget? largeScreen;
   final Widget? mediumScreen;
   final Widget? smallScreen;
 
-  const ResponsiveLayout(
+  const RushWidget(
       {Key? key,
         required this.largeScreen,
         this.mediumScreen,
@@ -50,23 +50,3 @@ class ResponsiveLayout extends StatelessWidget {
     );
   }
 }
-
-abstract class ResponsiveStatelessMixin extends StatelessWidget {
-  const ResponsiveStatelessMixin({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ResponsiveLayout(
-        largeScreen: buildLargeScreen(context),
-        mediumScreen: buildMediumScreen(context),
-        smallScreen: buildSmallScreen(context),
-      ),
-    );
-  }
-
-  Widget buildLargeScreen(BuildContext context);
-  Widget buildMediumScreen(BuildContext context);
-  Widget buildSmallScreen(BuildContext context);
-}
-
