@@ -8,7 +8,7 @@ class RushWidget extends StatelessWidget {
 
   const RushWidget(
       {Key? key,
-        required this.largeScreen,
+        this.largeScreen,
         this.mediumScreen,
         this.smallScreen})
       : super(key: key);
